@@ -55,7 +55,7 @@ const About = () => {
             <div className="flex flex-wrap justify-center gap-4 mb-4">
               <a
                 href="https://www.youtube.com/channel/UC5AFDEZuWZWDr-Dg0eh6h1g?sub_confirmation=1"
-                target="_blank"
+                target="1469691281201430569"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-heading font-semibold btn-glow transition-transform hover:scale-105"
               >
