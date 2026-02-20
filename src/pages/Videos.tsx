@@ -14,48 +14,47 @@ interface Video {
 const videos: Video[] = [
   {
     id: "1",
-    title: "Minecraft Video 1",
+    title: "Latest Minecraft Gameplay",
     thumbnail: "https://img.youtube.com/vi/r1BN35VWQOQ/maxresdefault.jpg",
     publishDate: "2026-02-17",
-    youtubeUrl: "https://youtu.be/78ialiOA5mg",
+    youtubeUrl: "https://youtu.be/r1BN35VWQOQ",
   },
   {
     id: "2",
-    title: "Minecraft Video 2",
+    title: "Epic Minecraft Challenge",
     thumbnail: "https://img.youtube.com/vi/zA0BRypOCpw/maxresdefault.jpg",
     publishDate: "2026-02-14",
-    youtubeUrl: "https://youtu.be/BWBfKf2Fizo",
-  },
-  {
-    id: "3",
-    title: "Minecraft Video 3",
-    thumbnail: "https://img.youtube.com/vi/Ew85rbaiyQM/maxresdefault.jpg",
-    publishDate: "2026-02-11",
-    youtubeUrl: "https://youtu.be/7e9uNk9MK0g",
-  },
-  {
-    id: "4",
-    title: "Minecraft Video 4",
-    thumbnail: "https://img.youtube.com/vi/7e9uNk9MK0g/maxresdefault.jpg",
-    publishDate: "2026-02-08",
-    youtubeUrl: "https://youtu.be/Ew85rbaiyQM",
-  },
-  {
-    id: "5",
-    title: "Minecraft Video 5",
-    thumbnail: "https://img.youtube.com/vi/BWBfKf2Fizo/maxresdefault.jpg",
-    publishDate: "2026-02-05",
     youtubeUrl: "https://youtu.be/zA0BRypOCpw",
   },
   {
+    id: "3",
+    title: "Minecraft Survival Adventure",
+    thumbnail: "https://img.youtube.com/vi/Ew85rbaiyQM/maxresdefault.jpg",
+    publishDate: "2026-02-11",
+    youtubeUrl: "https://youtu.be/Ew85rbaiyQM",
+  },
+  {
+    id: "4",
+    title: "Insane Minecraft Moments",
+    thumbnail: "https://img.youtube.com/vi/7e9uNk9MK0g/maxresdefault.jpg",
+    publishDate: "2026-02-08",
+    youtubeUrl: "https://youtu.be/7e9uNk9MK0g",
+  },
+  {
+    id: "5",
+    title: "Minecraft Server Fun",
+    thumbnail: "https://img.youtube.com/vi/BWBfKf2Fizo/maxresdefault.jpg",
+    publishDate: "2026-02-05",
+    youtubeUrl: "https://youtu.be/BWBfKf2Fizo",
+  },
+  {
     id: "6",
-    title: "Minecraft Video 6",
+    title: "Minecraft Pro Gameplay",
     thumbnail: "https://img.youtube.com/vi/78ialiOA5mg/maxresdefault.jpg",
     publishDate: "2026-02-01",
-    youtubeUrl: "https://youtu.be/r1BN35VWQOQ",
+    youtubeUrl: "https://youtu.be/78ialiOA5mg",
   },
 ];
-
 const Videos = () => {
   return (
     <Layout>
