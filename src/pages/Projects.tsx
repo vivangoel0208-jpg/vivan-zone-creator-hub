@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Download, Search, X } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeeMore from "@/components/SeeMore";
 
@@ -41,6 +42,14 @@ const projects: Project[] = [
 ];
 
 const Projects = () => {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredProjects = useMemo(() => {
+    if (!searchQuery.trim()) return projects;
+    return projects.filter((p) => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  }, [searchQuery]);
+
   return (
     <Layout>
       <section className="py-20">
@@ -52,12 +61,44 @@ const Projects = () => {
           >
             <span className="text-gradient-red">Projects</span>
           </motion.h1>
-          <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
-            Browse and download our latest projects and configurations
-          </p>
+          <div className="flex items-center justify-between mb-12 max-w-xl mx-auto">
+            <p className="text-muted-foreground flex-1 text-center">
+              Browse and download our latest projects and configurations
+            </p>
+            <button
+              onClick={() => { setSearchOpen(!searchOpen); setSearchQuery(""); }}
+              className="ml-4 p-2 rounded-lg border border-border bg-card text-foreground hover:bg-accent transition-colors"
+              aria-label="Toggle search"
+            >
+              {searchOpen ? <X size={20} /> : <Search size={20} />}
+            </button>
+          </div>
+
+          <AnimatePresence>
+            {searchOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="max-w-md mx-auto mb-8 overflow-hidden"
+              >
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search projects by name..."
+                  className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                  autoFocus
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {projects.map((project, i) => (
+            {filteredProjects.length === 0 && (
+              <p className="col-span-full text-center text-muted-foreground py-10">No projects found.</p>
+            )}
+            {filteredProjects.map((project, i) => (
               <motion.div
                 key={project.id}
                 initial={{ y: 30, opacity: 0 }}
